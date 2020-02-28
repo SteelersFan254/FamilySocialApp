@@ -4,6 +4,29 @@ var passport = require("../config/passport");
 const axios = require("axios");
 
 module.exports = function (app) {
+
+    app.post("/api/home", function (req, res) {
+        db.Comment.create({
+            comment: req.body
+        }).then(function(){
+            res.json(req.body);
+        }).catch(function(err) {
+            res.send(err)
+        })
+
+    })
+
+
+
+
+
+
+
+
+
+
+
+
     // Using the passport.authenticate middleware with our local strategy.
     // If the user has valid login credentials, send them to the members page.
     // Otherwise the user will be sent an error
