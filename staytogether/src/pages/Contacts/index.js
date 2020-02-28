@@ -5,7 +5,7 @@ import Card from "../../components/Card"
 function Contacts() {
     return (
         <div>
-            <div className="container">
+            <div className="jumbotron contactBox">
                 <Card />
                 <Card />
                 <Card />
