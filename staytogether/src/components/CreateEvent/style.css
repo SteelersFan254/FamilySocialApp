@@ -1,0 +1,10 @@
+.card {
+    width: 400px;
+    height: 200px;
+    background-color:black;
+}
+
+.card-body {
+    width: 400px;
+
+}
