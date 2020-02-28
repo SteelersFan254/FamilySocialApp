@@ -33,7 +33,7 @@ function CommentBox() {
             <input onChange={handleInputChange}
                 name="comment"
             ></input>
-            <button onclick={handleFormSubmit}>Comment</button>
+            <button onClick={handleFormSubmit}>Comment</button>
         </div>
     )
 };
