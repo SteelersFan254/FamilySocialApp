@@ -5,7 +5,7 @@ import "./style.css";
 
 function Navbar() {
     return (
-        <div className="navbar">
+        <div className="navbar navbarDiv">
             <Link
                 to="/home"
                 className={window.location.pathname === "/home"}

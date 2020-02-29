@@ -1,6 +1,5 @@
 import React from "react";
-
-
+import "./style.css"
 
 
 
@@ -8,7 +7,7 @@ import React from "react";
 function CommentCreate(props) {
 
     return (
-        <div>
+        <div className="commentCreateDiv">
             Write a comment
             <input onChange={props.handleInputChange}
                 name="comment"
