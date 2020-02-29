@@ -1,23 +1,21 @@
-import React, { useState } from 'react';
-import API from "../../utils/API";
-
+import React from 'react';
+import CommentBox from "../CommentBox"
 function CommentFeed(props) {
 
     return (
 
         <div>
-            <button onClick={props.loadComments}>See Comment</button>
+
             <div>
                 {props.comments.length ? (
-                    <li>
-                        {props.comments.map(comment => (
-                            <ul key={comment._id}>
-                                <strong>
-                                    {comment.comment}
-                                </strong>
-                            </ul>
+                    <div>
+                        {props.comments.slice(0).reverse().map(comment => (
+                            <div key={comment._id}>
+                                <CommentBox comment = {comment} />
+
+                            </div>
                         ))}
-                    </li>
+                    </div>
                 ) : (
                         <h3>No Results to Display</h3>
                     )}
