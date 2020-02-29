@@ -1,14 +1,21 @@
-// Requiring our models and passport as we've configured it
-var db = require("../models");
-var passport = require("../config/passport");
-const axios = require("axios");
-    app.post("/api/home", function (req, res) {
-        db.Comment.create({
-            comment: req.body
-        }).then(function(){
-            res.json(req.body);
-        }).catch(function(err) {
-            res.send(err)
-        })
+const db = require("../models");
 
-    })
+module.exports = function (app) {
+
+    app.post("/api/home", function (req, res) {
+        console.log("reachingbackend")
+        db.Comment.create(
+            req.body
+        ).then(function(results) {
+            res.json(results);
+            console.log("POSTY BITCH")
+        });
+    });
+
+    app.get("/api/home", function(req, res) {
+        db.Comment.findAll({
+        }).then(function(results) {
+            res.json(results);
+        });
+    });
+}
