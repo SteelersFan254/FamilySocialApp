@@ -15,7 +15,11 @@ function Home() {
         const { name, value } = event.target;
         setFormObject({ ...formObject, [name]: value })
     };
-
+    API.getComments()
+    .then(res =>
+        setComments(res.data)
+    )
+    .catch(err => console.log(err));
 
     function handleFormSubmit(event) {
         event.preventDefault();
