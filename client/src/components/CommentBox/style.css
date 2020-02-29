@@ -1,0 +1,8 @@
+.commentBox {
+    border: 0;
+    margin: 10px;
+
+}
+.commentBox-body {
+    background-color: gold;
+}

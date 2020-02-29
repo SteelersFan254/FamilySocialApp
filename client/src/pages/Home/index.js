@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import "./style.css"
-import CommentBox from "../../components/CommentBox"
+import CommentCreate from "../../components/CommentCreate"
 import CommentFeed from "../../components/CommentFeed"
 import API from "../../utils/API";
 
@@ -40,7 +40,7 @@ function Home() {
                 <div className="col-md-5">
                 </div>
                 <div className="col-md-4">
-                    <CommentBox
+                    <CommentCreate
                         handleInputChange={handleInputChange}
                         handleFormSubmit={handleFormSubmit}
                     />

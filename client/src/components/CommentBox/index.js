@@ -1,19 +1,18 @@
-import React, {useState} from "react";
-import API from "../../utils/API";
+import React from 'react';
+import "./style.css"
 
-
-
-
-  
 function CommentBox(props) {
 
     return (
+
         <div>
-            Write a comment
-            <input onChange={props.handleInputChange}
-                name="comment"
-            ></input>
-            <button onClick={props.handleFormSubmit}>Comment</button>
+            <div className="card commentBox">
+                <div className="card-body commentBox-body">
+                <strong>
+                                    {props.comment.comment}
+                                </strong>
+                </div>
+            </div>
         </div>
     )
 };
