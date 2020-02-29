@@ -1,25 +1,16 @@
 import React, { useState } from 'react';
 import API from "../../utils/API";
 
-function CommentFeed() {
-    const [comments, setComments] = useState([])
+function CommentFeed(props) {
 
-    function loadComments() {
-        console.log("load comment function working when clicked on")
-        API.getComments()
-            .then(res =>
-                setComments(res.data)
-            )
-            .catch(err => console.log(err));
-    };
     return (
 
         <div>
-            <button onClick={loadComments}>See Comment</button>
+            <button onClick={props.loadComments}>See Comment</button>
             <div>
-                {comments.length ? (
+                {props.comments.length ? (
                     <li>
-                        {comments.map(comment => (
+                        {props.comments.map(comment => (
                             <ul key={comment._id}>
                                 <strong>
                                     {comment.comment}
