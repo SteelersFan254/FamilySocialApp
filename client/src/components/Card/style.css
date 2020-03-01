@@ -1,0 +1,11 @@
+.contactCard {
+    width: 30%;
+    height: 50px;
+    margin: 1%;
+    background-color: gold;
+
+}
+
+.contactCard-body {
+    background-color: gold;
+}

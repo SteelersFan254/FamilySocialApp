@@ -1,3 +1,8 @@
-.commentCreateDiv {
+.commentCreate {
     background-color: gold;
+}
+
+.commentCreate-body {
+    background-color: gold;
+    margin: 0 auto;
 }

@@ -1,4 +1,5 @@
 .contactBox {
+    width: 80%;
     background-color: green;
     box-shadow: 1px 1px 1px 1px black;
     margin: 0 auto;

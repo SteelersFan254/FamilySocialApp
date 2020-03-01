@@ -1,7 +1,10 @@
-.navbar {
-    margin: 0 0 10px 0;
-}
-
 .navbarDiv {
     background-color: gold;
+    margin: 1% 2%;
+    height: 50px;
+}
+
+.linkBox {
+    float: right;
+    background-color: black;
 }

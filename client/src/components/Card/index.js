@@ -4,9 +4,12 @@ import "./style.css"
 
 function Card() {
     return (
-        <div className="card">
-            Name
+        <div class="card contactCard">
+            <div class="card-body contactCard-body">
+                This is some text within a card body.
+            </div>
         </div>
+
     )
 };
 
