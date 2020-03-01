@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import "./style.css"
-import CommentCreate from "../../components/CommentCreate"
 import CommentFeed from "../../components/CommentFeed"
 import API from "../../utils/API";
 
@@ -34,9 +33,11 @@ function Home() {
             )
             .catch(err => console.log(err));
     };
-
+    var style = {
+        margin: "0 2%"
+      }
     return (
-        <div>
+        <div style={style}>
             <div className="row">
                 <div className="col-md-3">
 
@@ -44,13 +45,11 @@ function Home() {
                 <div className="col-md-5">
                 </div>
                 <div className="col-md-4">
-                    <CommentCreate
-                        handleInputChange={handleInputChange}
-                        handleFormSubmit={handleFormSubmit}
-                    />
                     <CommentFeed
                         comments={comments}
                         loadComments={loadComments}
+                        handleInputChange={handleInputChange}
+                        handleFormSubmit={handleFormSubmit}
                     />
                 </div>
             </div>

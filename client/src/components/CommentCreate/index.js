@@ -7,13 +7,17 @@ import "./style.css"
 function CommentCreate(props) {
 
     return (
-        <div className="commentCreateDiv">
+
+        <div class="card commentCreate">
+        <div class="card-body commentCreate-body">
+
             Write a comment
             <input onChange={props.handleInputChange}
                 name="comment"
             ></input>
             <button onClick={props.handleFormSubmit}>Comment</button>
         </div>
+    </div>
     )
 };
 
