@@ -11,5 +11,18 @@ export default {
   getComments: function() {
     console.log("successfully went to api.js")
     return axios.get("/api/home");
-  }
+  },
+
+//   getContacts: function() {
+//     console.log("successfully went to api.js")
+//     return axios.get("/api/users");
+//   }
+// };
+
+signup: (email, password) => {
+  console.log("getting to API.js folder")
+  return axios.post("/api/auth/signup", { email, password });
+}
 };
+
+
