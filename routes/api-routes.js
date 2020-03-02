@@ -19,8 +19,15 @@ module.exports = function (app) {
         });
     });
 
+    // app.get("/api/users", function(req, res) {
+    //     db.Comment.findAll({
+    //     }).then(function(results) {
+    //         res.json(results);
+    //     });
+    // });
+
     app.post("/api/auth/signup", function (req, res) {
-        db.User.create(
+        db.Stupid.create(
             req.body
         ).then(function(results) {
             res.json(results);

@@ -1,8 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
-
-    const User = sequelize.define("User", {
+    const Stupid = sequelize.define("Stupid", {
         email: {
-            id: AUTO_INCREMENT,
             type: DataTypes.STRING,
             allowNull: false
         },
@@ -11,7 +9,6 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false
         }
     });
-
     // Review.associate = function(models) {
     //     Review.belongsTo(models.User, {
     //         foreignKey: {
@@ -19,6 +16,5 @@ module.exports = function(sequelize, DataTypes) {
     //         }
     //     });
     // };
-
-    return User;
+    return Stupid;
 };

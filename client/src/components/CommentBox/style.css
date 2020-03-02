@@ -1,9 +1,6 @@
 .commentBox {
     margin: 10px auto;
     background-color: gold;
-
-
-}
-.commentBox-body {
-    background-color: gold;
+    border-radius: 35px;
+    height: 100%;
 }

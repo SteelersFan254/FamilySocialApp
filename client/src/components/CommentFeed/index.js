@@ -1,13 +1,14 @@
 import React from 'react';
 import CommentBox from "../CommentBox"
 import CommentCreate from '../CommentCreate';
+import "./style.css"
 function CommentFeed(props) {
 
     return (
 
-        <div>
+        <div className="commentFeed">
             {props.comments.length ? (
-                <div>
+                <div style={{ height: "100%" }}>
                     <CommentCreate
                         handleInputChange={props.handleInputChange}
                         handleFormSubmit={props.handleFormSubmit}
