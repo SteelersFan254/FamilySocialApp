@@ -33,7 +33,7 @@ function Navbar() {
                         Tree
                     </Link>
                 </div>
-                <div className="otherNavBox">
+                <div className="profileBox">
                 <Link
                         to="/profile"
                         className={window.location.pathname === "/profile"}

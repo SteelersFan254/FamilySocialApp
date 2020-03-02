@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import "./style.css"
 import CommentFeed from "../../components/CommentFeed"
 import EventFeed from "../../components/EventFeed"
@@ -15,11 +15,16 @@ function Home() {
         const { name, value } = event.target;
         setFormObject({ ...formObject, [name]: value })
     };
-    API.getComments()
-    .then(res =>
-        setComments(res.data)
-    )
-    .catch(err => console.log(err));
+
+    useEffect(() => {
+        console.log("EFFECT");
+        loadComments();
+        // API.getComments()
+        //     .then(res =>
+        //         setComments(res.data)
+        //     )
+        //     .catch(err => console.log(err));
+    }, []);
 
     function handleFormSubmit(event) {
         event.preventDefault();
@@ -27,6 +32,8 @@ function Home() {
     };
 
     function loadComments() {
+        console.log("logging");
+        //debugger;
         console.log("load comment function working when clicked on")
         API.getComments()
             .then(res =>
@@ -36,7 +43,7 @@ function Home() {
     };
     var style = {
         margin: "0 2%",
-      }
+    }
     return (
         <div style={style}>
             <div className="row">

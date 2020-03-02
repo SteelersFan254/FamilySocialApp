@@ -20,6 +20,7 @@ module.exports = function (app) {
     });
 
     app.get("/api/auth/signup", function(req, res) {
+        console.log(req.body);
         db.Stupid.findAll({
         }).then(function(results) {
             res.json(results);

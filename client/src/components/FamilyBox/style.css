@@ -1,10 +1,7 @@
-.commentBox {
-    margin: 10px auto;
+.familyBox {
     background-color: gold;
     border-radius: 10px;
+    margin: 2%;
     height: 100%;
-}
-
-.comment {
-    margin: 5%;
+    font-size: 24px;
 }
