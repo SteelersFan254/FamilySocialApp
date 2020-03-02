@@ -7,12 +7,13 @@ function CommentFeed(props) {
     return (
 
         <div className="commentFeed">
+            <CommentCreate
+                handleInputChange={props.handleInputChange}
+                handleFormSubmit={props.handleFormSubmit}
+            />
             {props.comments.length ? (
                 <div style={{ height: "100%" }}>
-                    <CommentCreate
-                        handleInputChange={props.handleInputChange}
-                        handleFormSubmit={props.handleFormSubmit}
-                    />
+
                     {props.comments.slice(0).reverse().map(comment => (
 
                         <CommentBox comment={comment} key={comment._id} />

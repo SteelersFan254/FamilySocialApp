@@ -6,15 +6,15 @@ function Card(props) {
     console.log(props)
     console.log(props.contact)
     return (
-        <div class="contactCard">
-                <img src="https://via.placeholder.com/150" style={{ borderRadius: "50%", margin: "1%" }} />
+        <div className="contactCard">
+                <img src="https://via.placeholder.com/150" style={{ borderRadius: "50%", margin: "2%" }} />
                 
                 
-                {/* <div>
+                <div style={{float:"right"}}>
                     
                     {props.contact.email}
                     {props.contact.password}
-                </div> */}
+                </div>
             </div>
     )
 };
