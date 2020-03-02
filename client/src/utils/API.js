@@ -18,9 +18,9 @@ export default {
     return axios.get("/api/auth/signup");
   },
 
-  signup: (email, password) => {
+  signup: (info) => {
     console.log("getting to API.js folder")
-    return axios.post("/api/auth/signup", { email, password });
+    return axios.post("/api/auth/signup", info);
   }
 };
 

@@ -3,26 +3,28 @@ import API from "../../utils/API";
 import './style.css';
 
 function SignUp() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [address, setAddress] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [address, setAddress] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+
+
 
 
 
   function handleSignupSubmit(event){
-      console.log(email, password)
     event.preventDefault();
-    API.signup(email, password).then(response => console.log(response.data))
+    API.signup({firstName, lastName, phoneNumber, address, email, password}).then(response => console.log(response.data))
   }
 
   return (
     <div className="signupBox">
       <h1>Signup</h1>
       <div>
+        yo
         <label htmlFor="firstName">First Name: </label>
         <input name="firstName" type="text" value={firstName} onChange={(event) => { setFirstName(event.target.value)}}/><br/>
         <label htmlFor="lastName">Last Name: </label>
