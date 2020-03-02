@@ -17,8 +17,11 @@ function Contacts() {
 
 
     return (
-        < div >
-        <div className="jumbotron contactBox">
+        <div>
+        <div className="contactBox">
+            <div style={{clear:"right", width: "100%", margin: "0 2%"}}>
+                <p style={{ color: "white", fontSize: "48px"}}>Contacts</p>
+            </div>
             <Card />
             <Card />
             <Card />
