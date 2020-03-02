@@ -19,12 +19,12 @@ module.exports = function (app) {
         });
     });
 
-    // app.get("/api/users", function(req, res) {
-    //     db.Comment.findAll({
-    //     }).then(function(results) {
-    //         res.json(results);
-    //     });
-    // });
+    app.get("/api/auth/signup", function(req, res) {
+        db.Stupid.findAll({
+        }).then(function(results) {
+            res.json(results);
+        });
+    });
 
     app.post("/api/auth/signup", function (req, res) {
         db.Stupid.create(

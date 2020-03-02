@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import "./style.css"
 import CommentFeed from "../../components/CommentFeed"
+import EventFeed from "../../components/EventFeed"
 import API from "../../utils/API";
 
 
@@ -35,7 +36,6 @@ function Home() {
     };
     var style = {
         margin: "0 2%",
-        height: "1200px"
       }
     return (
         <div style={style}>
@@ -44,6 +44,7 @@ function Home() {
 
                 </div>
                 <div className="col-md-5">
+                    <EventFeed />
                 </div>
                 <div className="col-md-4">
                     <CommentFeed
