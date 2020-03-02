@@ -34,7 +34,8 @@ function Home() {
             .catch(err => console.log(err));
     };
     var style = {
-        margin: "0 2%"
+        margin: "0 2%",
+        height: "1200px"
       }
     return (
         <div style={style}>
