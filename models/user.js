@@ -1,12 +1,16 @@
 module.exports = function(sequelize, DataTypes) {
-    const Comment = sequelize.define("Comment", {
-        comment: {
+
+    const User = sequelize.define("User", {
+        email: {
+            id: AUTO_INCREMENT,
             type: DataTypes.STRING,
             allowNull: false
         },
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false
+        }
     });
-
-
 
     // Review.associate = function(models) {
     //     Review.belongsTo(models.User, {
@@ -16,5 +20,5 @@ module.exports = function(sequelize, DataTypes) {
     //     });
     // };
 
-    return Comment;
+    return User;
 };

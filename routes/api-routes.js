@@ -18,4 +18,13 @@ module.exports = function (app) {
             res.json(results);
         });
     });
+
+    app.post("/api/auth/signup", function (req, res) {
+        db.User.create(
+            req.body
+        ).then(function(results) {
+            res.json(results);
+            console.log("posted")
+        });
+    });
 }
