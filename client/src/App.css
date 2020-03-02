@@ -39,6 +39,6 @@
 
 body {
   background: rgb(0,0,0);
-  background: linear-gradient(0deg, rgba(0,0,0,0.8645833333333334) 0%, rgba(0,0,0,0.8225665266106442) 100%, rgba(0,0,0,0.6376925770308124) 100%);
+  background: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.85) 100%, rgba(0,0,0,0.6376925770308124) 100%);
   height: 1000px;
 }
