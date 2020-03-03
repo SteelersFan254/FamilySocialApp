@@ -1,6 +1,10 @@
 .commentBox {
     margin: 10px auto;
     background-color: gold;
-    border-radius: 35px;
+    border-radius: 10px;
     height: 100%;
+}
+
+.comment {
+    margin: 5%;
 }

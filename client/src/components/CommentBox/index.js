@@ -7,7 +7,7 @@ function CommentBox(props) {
 
         <div>
             <div className="commentBox">
-                    <p>{props.comment.comment}
+                    <p className="comment">{props.comment.comment}
                     </p>
             </div>
         </div>

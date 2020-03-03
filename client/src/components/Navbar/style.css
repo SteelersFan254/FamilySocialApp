@@ -2,10 +2,30 @@
     background-color: gold;
     margin: 1% 2%;
     height: 50px;
-    border-radius: 25px;
+    border-radius: 10px;
 }
 
 .linkBox {
     float: right;
-    background-color: black;
+    width: 20%;
+    display: flex;
+    justify-content:space-around;
+}
+
+.profileBox {
+    width: 10%;
+    display: flex;
+    justify-content: space-around;
+}
+
+a:link {
+    color:black;
+}
+
+a:hover {
+    color: white;
+}
+
+a:visited {
+    color: black;
 }

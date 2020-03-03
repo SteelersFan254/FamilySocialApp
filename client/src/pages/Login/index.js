@@ -1,61 +1,45 @@
-import React, { useEffect, useState } from 'react';
-import API from "../../utils/API";
-// import logo from './logo.svg';
+import React, { useState } from 'react';
+import { Link } from "react-router-dom";
+import "./style.css";
+import API from "../../utils/API.js"
 import axios from "axios";
-// import './App.css';
+
+
+
 
 function Login() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [privateInfo, setPrivateInfo] = useState({});
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  function handleSignupSubmit(event){
-    event.preventDefault();
-    API.signup(email, password).then(response => console.log(response.data))
-  }
 
-  function handleSigninSubmit(event){
-    event.preventDefault();
-    API.signin(email, password).then(response => {
-      setIsLoggedIn(true);
-      axios.get("/api/secret/number").then(response => {
-        setPrivateInfo({ secret: response.data})
-      })
-    })
-  }
-  function handleSignoutSubmit(event){
-    event.preventDefault();
-    API.signout().then(response => {
-      setIsLoggedIn(false);
-    })
-  }
-
-  function renderPrivateSection(){
-    if(isLoggedIn){
-      return <div>
-        <h1>{privateInfo.secret}7</h1>
-      </div>
+    function handleButtonSubmit(event) {
+        event.preventDefault();
+        API.login(email, password).then(response => {
+            setIsLoggedIn(true)
+            console.log("logged in")
+        })
     }
-  }
 
-  return (
-    <div className="App">
-      <h1>Signup</h1>
-      <div>
-        <label htmlFor="email">Email: </label>
-        <input name="email" type="text" value={email} onChange={(event) => { setEmail(event.target.value)}}/><br/>
-        <label htmlFor="email">Password: </label>
-        <input name="password" type="password" value={password} onChange={(event) => { setPassword(event.target.value)}}/> <br/>
-        <button onClick={handleSignupSubmit}>Sign Up!</button>
-        <button onClick={handleSigninSubmit}>Sign In!</button>
-        <button onClick={handleSignoutSubmit}>Sign Out!</button>
-      </div>
-      {
-        renderPrivateSection()
-      }      
-    </div>
-  );
-}
+    return (
+        <div>
+            <div className="loginBox">
+                <div className="loginBoxTitle">
+                    <span style={{ fontSize: "48px" }}>SIGN IN</span>
+                </div>
+                <input name="email" className="loginEmailInput" type="text" placeholder="Email" value={email} onChange={(event) => { setEmail(event.target.value) }} />
+                <input name="password" className="loginPasswordInput" placeholder="Password" type="password" value={password} onChange={(event) => { setPassword(event.target.value) }} />
+                <button className="loginSubmitButton" onClick={handleButtonSubmit}>SUBMIT</button>>
+                </div>
+            <Link
+                to="/signup"
+                className={window.location.pathname === "/signup"}
+            >
+                <p>SIGNUP</p>
+            </Link>
+
+        </div>
+    )
+};
 
 export default Login;

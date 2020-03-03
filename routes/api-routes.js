@@ -1,37 +1,49 @@
 const db = require("../models");
-const passport = require("../config/passport");
 const router = require("express").Router();
+const bcrypt = require("bcrypt");
+const passport = require("../config/passport");
+const isAuthenticated = require("../config/middleware/isAuthenticated.js")
+
+
+
 module.exports = function (app) {
 
     app.post("/api/home", function (req, res) {
         console.log("reachingbackend")
         db.Comment.create(
             req.body
-        ).then(function(results) {
+        ).then(function (results) { 
             res.json(results);
             console.log("POSTY BITCH")
         });
     });
 
-    app.get("/api/home", function(req, res) {
+    app.get("/api/home", function (req, res) {
         db.Comment.findAll({
-        }).then(function(results) {
+        }).then(function (results) {
             res.json(results);
         });
     });
 
-    app.get("/api/auth/signup", function(req, res) {
-        db.Stupid.findAll({
-        }).then(function(results) {
-            res.json(results);
-        });
-    });
+    // app.get("/api/auth/signup", function(req, res) {
+    //     console.log(req.body);
+    //     db.Stupid.findAll({
+    //     }).then(function(results) {
+    //         res.json(results);
+    //     });
+    // });
+
+    app.post("/api/auth/login", passport.authenticate("local"), (req, res) => {
+        console.log("test");
+        res.json(req.user);
+    })
 
     app.post("/api/auth/signup", function (req, res) {
+        const hash = bcrypt.hashSync(req.body.password, 10)
         db.Stupid.create(
-            req.body
-        ).then(function(results) {
-            res.json(results);
+            Object.assign(req.body, { password: hash})
+        ).then(function (results) {
+            res.json(results.authorize());
             console.log("posted")
         });
     });
@@ -56,4 +68,16 @@ module.exports = function (app) {
         req.logout();
         res.sendStatus(200);
     });
+    app.get("api/signout", (req, res) => {
+        req.logout();
+        res.sendStatus(200);
+    });
+
+    app.get("/profile", isAuthenticated, (req, res) => {
+        res.json(req.body)
+    })
+
+    ///////////////
+
+
 }

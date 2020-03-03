@@ -7,7 +7,7 @@ function EventBox() {
 
         <div>
             <div className="eventBox">
-                hello
+                <p className="event">aslk;djfas;lkdfjas;l</p>
 
             </div>
         </div>

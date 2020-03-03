@@ -1,0 +1,8 @@
+.profilePageBox {
+        background-color: rgba(50, 50, 50, 1);
+        box-shadow: 1px 1px 1px 1px black;
+        margin: 0 2%;
+        overflow: scroll;
+        height: 880px;
+        border-radius: 10px;
+}
