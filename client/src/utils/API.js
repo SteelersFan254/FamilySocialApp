@@ -2,10 +2,23 @@ import axios from "axios";
 
 export default {
 
+
+  signin: (email, password) => {
+    return axios.post("/api/auth/signin", { email, password });
+  },
+  signout: () => {
+    return axios.get("/api/auth/signout");
+  },
+  signup: (email, password) => {
+    return axios.post("/api/auth/signup", { email, password });
+  },
+
+
+  
+
   saveComment: function (commentData) {
     console.log("going to api.js")
     return axios.post("/api/home", commentData);
-
   },
 
   getComments: function () {

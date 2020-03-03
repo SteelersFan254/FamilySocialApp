@@ -1,5 +1,6 @@
 const db = require("../models");
-
+const passport = require("../config/passport");
+const router = require("express").Router();
 module.exports = function (app) {
 
     app.post("/api/home", function (req, res) {
@@ -33,5 +34,26 @@ module.exports = function (app) {
             res.json(results);
             console.log("posted")
         });
+    });
+
+
+
+
+
+    router.post("/signup", function(req, res){
+        db.Stupid.create(req.body).then(dbUser => {
+            res.json(dbUser.email);
+        }).catch(err => {
+            console.log(err);
+        })
+    })
+    
+    router.post("/signin", passport.authenticate("local"), (req, res) => {
+        res.json(req.user.email);
+    })
+    
+    router.get("/signout", (req, res) => {
+        req.logout();
+        res.sendStatus(200);
     });
 }

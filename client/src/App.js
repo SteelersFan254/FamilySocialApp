@@ -1,5 +1,9 @@
-import React from 'react';
+
+import axios from "axios";
+import API from "./utils/API";
+import React, { useEffect, useState} from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
+
 import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Contacts from "./pages/Contacts";
@@ -9,13 +13,18 @@ import Profile from "./pages/Profile";
 import Navbar from "./components/Navbar";
 //import LoginNavbar from "./components/LoginNavbar";
 import './App.css';
+// import { DESCRIBE } from "sequelize/types/lib/query-types";
+
+
 function App() {
+
   return (
+    
     <Router>
       <div>
+        {/* <Route exact path="/" component={LoginNavbar} /> */}
         <Navbar />
         <Route exact path="/" component={Login} />
-        <Route exact path="/login" component={Login} />
         <Route exact path="/home" component={Home}/>
         <Route exact path="/contacts" component={Contacts} />
         <Route exact path="/map" component={Maps} />
@@ -24,5 +33,7 @@ function App() {
       </div>
     </Router>
   )
+  
 };
+
 export default App;

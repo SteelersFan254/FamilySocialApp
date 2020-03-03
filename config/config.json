@@ -1,7 +1,10 @@
 {
   "development": {
     "dialect": "mysql",
-    "use_env_variable":"LOCALDB_URL"
+    "username":"root",
+    "password":"Lowapple3",
+    "database": "staytogether_db",
+    "host": "127.0.0.1"
   },
   "test": {
     "username": "root",

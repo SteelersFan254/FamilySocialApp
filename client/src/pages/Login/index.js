@@ -1,15 +1,42 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import API from "../../utils/API";
-import './style.css';
+// import logo from './logo.svg';
+import axios from "axios";
+// import './App.css';
 
 function Login() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [privateInfo, setPrivateInfo] = useState({});
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   function handleSignupSubmit(event){
-      console.log(email, password)
     event.preventDefault();
     API.signup(email, password).then(response => console.log(response.data))
+  }
+
+  function handleSigninSubmit(event){
+    event.preventDefault();
+    API.signin(email, password).then(response => {
+      setIsLoggedIn(true);
+      axios.get("/api/secret/number").then(response => {
+        setPrivateInfo({ secret: response.data})
+      })
+    })
+  }
+  function handleSignoutSubmit(event){
+    event.preventDefault();
+    API.signout().then(response => {
+      setIsLoggedIn(false);
+    })
+  }
+
+  function renderPrivateSection(){
+    if(isLoggedIn){
+      return <div>
+        <h1>{privateInfo.secret}7</h1>
+      </div>
+    }
   }
 
   return (
@@ -21,7 +48,12 @@ function Login() {
         <label htmlFor="email">Password: </label>
         <input name="password" type="password" value={password} onChange={(event) => { setPassword(event.target.value)}}/> <br/>
         <button onClick={handleSignupSubmit}>Sign Up!</button>
-      </div>    
+        <button onClick={handleSigninSubmit}>Sign In!</button>
+        <button onClick={handleSignoutSubmit}>Sign Out!</button>
+      </div>
+      {
+        renderPrivateSection()
+      }      
     </div>
   );
 }
