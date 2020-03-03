@@ -53,7 +53,11 @@ module.exports = function (app) {
     });
 
     app.get("/profile", isAuthenticated, (req, res) => {
-        res.json(req.body)
+        console.log(req)
+        console.log("backened")
+        db.Stupid.findOne({where: { email: req.email }}).then(dbUser => {
+            console.log(dbUser)
+        })
     })
 
     ///////////////

@@ -7,19 +7,19 @@ import axios from "axios";
 
 
 
-function Login() {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+function Login(props) {
+    // const [email, setEmail] = useState(props.email);
+    // const [password, setPassword] = useState(props.password);
+    // const [isLoggedIn, setIsLoggedIn] = useState(false);
 
 
-    function handleButtonSubmit(event) {
-        event.preventDefault();
-        API.login(email, password).then(response => {
-            setIsLoggedIn(true)
-            console.log("logged in")
-        })
-    }
+    // function handleButtonSubmit(event) {
+    //     event.preventDefault();
+    //     API.login(email, password).then(response => {
+    //         setIsLoggedIn(true)
+    //         console.log(response)
+    //     })
+    // }
 
     return (
         <div>
@@ -27,9 +27,27 @@ function Login() {
                 <div className="loginBoxTitle">
                     <span style={{ fontSize: "48px" }}>SIGN IN</span>
                 </div>
-                <input name="email" className="loginEmailInput" type="text" placeholder="Email" value={email} onChange={(event) => { setEmail(event.target.value) }} />
-                <input name="password" className="loginPasswordInput" placeholder="Password" type="password" value={password} onChange={(event) => { setPassword(event.target.value) }} />
-                <button className="loginSubmitButton" onClick={handleButtonSubmit}>SUBMIT</button>>
+                <input 
+                    name="email" 
+                    className="loginEmailInput" 
+                    type="text" placeholder="Email" 
+                    value={props.email} 
+                    onChange={props.handleEmailInputChange} 
+                />
+                <input 
+                    name="password" 
+                    className="loginPasswordInput" 
+                    placeholder="Password" 
+                    type="password" 
+                    value={props.password} 
+                    onChange={props.handlePasswordInputChange} 
+                />
+                <button 
+                    className="loginSubmitButton" 
+                    onClick={props.handleButtonSubmit}
+                >
+                    SUBMIT
+                </button>>
                 </div>
             <Link
                 to="/signup"
