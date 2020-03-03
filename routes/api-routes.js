@@ -1,6 +1,6 @@
 const db = require("../models");
 const router = require("express").Router();
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const passport = require("../config/passport");
 const isAuthenticated = require("../config/middleware/isAuthenticated.js")
 
@@ -74,7 +74,11 @@ module.exports = function (app) {
     });
 
     app.get("/profile", isAuthenticated, (req, res) => {
-        res.json(req.body)
+        console.log(req)
+        console.log("backened")
+        db.Stupid.findOne({where: { email: req.email }}).then(dbUser => {
+            console.log(dbUser)
+        })
     })
 
     ///////////////

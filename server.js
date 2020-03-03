@@ -17,7 +17,10 @@ var db = require("./models/");
 var app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static("public"));
+if(process.env.NODE_ENV === "production"){
+    app.use(express.static("client/build"));
+}
+
 app.use(session({secret: process.env.SESSION_SECRET, resave: true, saveUninitialized: true }))
 app.use(passport.initialize());
 app.use(passport.session());
