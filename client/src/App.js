@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import API from "./utils/API.js"
 import UserContext from "./utils/UserContext";
 import Login from "./pages/Login";
@@ -30,6 +30,27 @@ function App() {
       setUser(response.data)
     })
 
+  }
+  function renderPrivateRoutes(){
+    return <>
+        <Route exact path="/home">
+          <Home />
+        </Route>
+        <Route exact path="/contacts">
+          <Contacts />
+        </Route>
+        <Route exact path="/map">
+          <Maps />
+        </Route>
+        <Route exact path="/tree">
+          <Tree />
+        </Route>
+        <Route exact path="/profile">
+          <Profile
+            user={user}
+          />
+        </Route>
+      </>
   }
 
   const handleEmailInputChange = event => {
@@ -65,23 +86,10 @@ function App() {
             <Route exact path="/signup">
               <SignUp />
             </Route>
-            <Route exact path="/home">
-              <Home />
-            </Route>
-            <Route exact path="/contacts">
-              <Contacts />
-            </Route>
-            <Route exact path="/map">
-              <Maps />
-            </Route>
-            <Route exact path="/tree">
-              <Tree />
-            </Route>
-            <Route exact path="/profile">
-              <Profile
-                user={user}
-              />
-            </Route>
+            {
+              (isLoggedIn) && renderPrivateRoutes()
+            }
+            
             {/* <Route exact path="/login" render={(props) => <Login {...props} handleEmailInputChange={handleEmailInputChange} handlePasswordInputChange={handlePasswordInputChange} handleButtonSubmit={handleButtonSubmit} />} />
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/home" component={Home} />
@@ -89,6 +97,9 @@ function App() {
         <Route exact path="/map" component={Maps} />
         <Route exact path="/tree" component={Tree} />
         <Route exact path="/profile" component={Profile} /> */}
+        <Route>
+          <Redirect to="/" />
+        </Route>
           </Switch>
         </div>
       </UserContext.Provider>

@@ -7,6 +7,7 @@ function Contacts() {
     const [contacts, setContacts] = useState([])
 
     useEffect(()=>{
+        console.log("useeffect")
         API.getContacts()
             .then(response => {
                 setContacts(response.data)
@@ -16,7 +17,7 @@ function Contacts() {
             .catch(err => console.log(err));
         }, []);
 
-
+        console.log(contacts)
     return (
         <div>
         <div className="contactBox">
