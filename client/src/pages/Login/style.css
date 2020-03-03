@@ -1,0 +1,33 @@
+.loginBox {
+    background-color: gold;
+    border-radius: 10px;
+    width: 40%;
+    margin: 5% auto;
+    height: 300px;
+    overflow: hidden;
+}
+
+.loginBoxTitle {
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+    height: 25%;
+}
+
+.loginEmailInput {
+    width: 100%;
+    height: 25%;
+}
+
+.loginPasswordInput {
+    width: 100%;
+    height: 25%;
+}
+
+.loginSubmitButton {
+    width: 100%;
+    height: 25%;
+    background-color: gold;
+    text-align: center;
+    font-size: 48px;
+}

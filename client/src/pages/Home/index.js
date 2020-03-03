@@ -17,13 +17,11 @@ function Home() {
     };
 
     useEffect(() => {
-        console.log("EFFECT");
-        loadComments();
-        // API.getComments()
-        //     .then(res =>
-        //         setComments(res.data)
-        //     )
-        //     .catch(err => console.log(err));
+        API.getComments()
+            .then(res =>
+                setComments(res.data)
+            )
+            .catch(err => console.log(err));
     }, []);
 
     function handleFormSubmit(event) {

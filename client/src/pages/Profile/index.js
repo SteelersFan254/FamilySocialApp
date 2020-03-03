@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './style.css';
 import PictureBox from "../../components/PictureBox"
 import AboutBox from "../../components/AboutBox"
@@ -6,8 +6,19 @@ import InfoBox from "../../components/InfoBox"
 import FamilyBox from "../../components/FamilyBox"
 import SocialMediaBox from "../../components/SocialMediaBox"
 import PhotoBox from "../../components/PhotoBox"
+import API from "../../utils/API.js"
 
 function Profile() {
+    const [user, setUser = useState] = useState({})
+    useEffect(()=>{
+        API.getUser()
+            .then(res => {
+                setUser(res.data)
+                console.log(res.data)
+            }
+            )
+            .catch(err => console.log(err));
+        }, []);
     return (
         <div>
             <div className="profilePageBox">
