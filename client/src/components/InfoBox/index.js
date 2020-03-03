@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import "./style.css"
+import UserContext from "../../utils/UserContext";
 
 function InfoBox() {
-
+    const context = useContext(UserContext);
     return (
 
         <div>
@@ -11,9 +12,9 @@ function InfoBox() {
                    <p style={{fontSize: "48px"}}> INFORMATION</p>
                </div>
                <div>
-                   <p>Phone Number: </p>
-                   <p>Email: </p>
-                   <p>Adrress: </p>
+                   <p>Phone Number: {context.phoneNumber}</p>
+                   <p>Email: {context.email}</p>
+                   <p>Address: {context.address}</p>
                </div>
 
             </div>

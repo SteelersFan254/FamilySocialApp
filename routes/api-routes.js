@@ -21,7 +21,7 @@ module.exports = function (app) {
         db.Comment.findAll({
         }).then(function (results) {
             res.json(results);
-        });
+        }); 
     });
 
     // app.get("/api/auth/signup", function(req, res) {
