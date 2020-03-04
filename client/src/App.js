@@ -10,7 +10,7 @@ import Tree from "./pages/Tree";
 import Profile from "./pages/Profile";
 import SignUp from "./pages/SignUp";
 import Navbar from "./components/Navbar";
-//import LoginNavbar from "./components/LoginNavbar";
+import LoginNavbar from "./components/LoginNavbar";
 import './App.css';
 
 
@@ -24,34 +24,65 @@ function App() {
     // event.preventDefault();
     API.login(email, password).then(response => {
       setIsLoggedIn(true);
-      console.log(isLoggedIn);
-      console.log(response.data);
       console.log(response.data.firstName + " " + response.data.lastName + " you are logged in!")
       setUser(response.data)
     })
 
   }
-  function renderPrivateRoutes(){
-    return <>
-        <Route exact path="/home">
-          <Home />
-        </Route>
-        <Route exact path="/contacts">
-          <Contacts />
-        </Route>
-        <Route exact path="/map">
-          <Maps />
-        </Route>
-        <Route exact path="/tree">
-          <Tree />
-        </Route>
-        <Route exact path="/profile">
-          <Profile
-            user={user}
-          />
-        </Route>
-      </>
-  }
+  // function renderPrivateRoutes() {
+  //   return <>
+  //     <Navbar />
+  //     <Switch>
+
+  //       <Route exact path="/home">
+  //         <Home />
+  //       </Route>
+  //       <Route exact path="/contacts">
+  //         <Contacts />
+  //       </Route>
+  //       <Route exact path="/map">
+  //         <Maps />
+  //       </Route>
+  //       <Route exact path="/tree">
+  //         <Tree />
+  //       </Route>
+  //       <Route exact path="/profile">
+  //         <Profile
+  //           user={user}
+  //         />
+  //       </Route>
+  //     </Switch>
+
+  //   </>
+  // }
+
+  // function renderPublicRoutes() {
+  //   return <>
+
+  //     <LoginNavbar />
+  //     <Switch>
+  //       <Route exact path="/">
+  //         <Login
+  //           handleEmailInputChange={handleEmailInputChange}
+  //           handlePasswordInputChange={handlePasswordInputChange}
+  //           handleButtonSubmit={handleButtonSubmit}
+  //         />
+  //       </Route>
+  //       <Route exact path="/login">
+  //         <Login
+  //           handleEmailInputChange={handleEmailInputChange}
+  //           handlePasswordInputChange={handlePasswordInputChange}
+  //           handleButtonSubmit={handleButtonSubmit}
+  //           email={email}
+  //           password={password}
+  //         />
+  //       </Route>
+  //       <Route exact path="/signup">
+  //         <SignUp />
+  //       </Route>
+  //     </Switch>
+  //   </>
+  // }
 
   const handleEmailInputChange = event => {
     setEmail(event.target.value);
@@ -72,7 +103,6 @@ function App() {
       <UserContext.Provider value={user}>
         <div>
           <Navbar />
-
           <Switch>
             <Route exact path="/">
               <Login
@@ -93,24 +123,49 @@ function App() {
             <Route exact path="/signup">
               <SignUp />
             </Route>
-            {
-              (isLoggedIn) && renderPrivateRoutes()
-            }
-            
-            {/* <Route exact path="/login" render={(props) => <Login {...props} handleEmailInputChange={handleEmailInputChange} handlePasswordInputChange={handlePasswordInputChange} handleButtonSubmit={handleButtonSubmit} />} />
+            <Route exact path="/home">
+              <Home />
+            </Route>
+            <Route exact path="/contacts">
+              <Contacts />
+            </Route>
+            <Route exact path="/map">
+              <Maps />
+            </Route>
+            <Route exact path="/tree">
+              <Tree />
+            </Route>
+            <Route exact path="/profile">
+              <Profile
+                user={user}
+              />
+            </Route>
+          </Switch>
+
+
+
+          {/* {
+            (isLoggedIn) && renderPrivateRoutes()
+          }
+
+          {
+            (!isLoggedIn) && renderPublicRoutes()
+          } */}
+
+          {/* <Route exact path="/login" render={(props) => <Login {...props} handleEmailInputChange={handleEmailInputChange} handlePasswordInputChange={handlePasswordInputChange} handleButtonSubmit={handleButtonSubmit} />} />
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/home" component={Home} />
         <Route exact path="/contacts" component={Contacts} />
         <Route exact path="/map" component={Maps} />
         <Route exact path="/tree" component={Tree} />
         <Route exact path="/profile" component={Profile} /> */}
-        <Route>
-          <Redirect to="/" />
-        </Route>
-          </Switch>
+          {/* <Route>
+            <Redirect to="/" />
+          </Route> */}
         </div>
       </UserContext.Provider>
     </Router>
+
   )
   
 };

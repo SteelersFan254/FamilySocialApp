@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import "./style.css"
 import CommentFeed from "../../components/CommentFeed"
 import EventFeed from "../../components/EventFeed"
+import ProfileColumn from "../../components/ProfileColumn"
 import API from "../../utils/API";
 
 
@@ -46,7 +47,7 @@ function Home() {
         <div style={style}>
             <div className="row">
                 <div className="col-md-3">
-
+                    <ProfileColumn />
                 </div>
                 <div className="col-md-5">
                     <EventFeed />

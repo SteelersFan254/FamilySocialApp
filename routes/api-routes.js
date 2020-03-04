@@ -43,7 +43,7 @@ module.exports = function (app) {
         db.Stupid.create(
             Object.assign(req.body, { password: hash})
         ).then(function (results) {
-            res.json(results.authorize());
+            res.json(results);
             console.log("posted")
         });
     });

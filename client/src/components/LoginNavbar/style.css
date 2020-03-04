@@ -1,0 +1,33 @@
+.navbarDiv {
+    background-color: gold;
+    margin: 1% 2%;
+    height: 50px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px 1px black;
+
+}
+
+.linkBox {
+    float: right;
+    width: 20%;
+    display: flex;
+    justify-content:space-around;
+}
+
+.profileBox {
+    width: 10%;
+    display: flex;
+    justify-content: space-around;
+}
+
+a:link {
+    color:black;
+}
+
+a:hover {
+    color: white;
+}
+
+a:visited {
+    color: black;
+}

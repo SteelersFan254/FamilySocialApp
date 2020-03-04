@@ -9,14 +9,18 @@ function SignUp() {
   const [address, setAddress] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  // const [profilePic, setProfilePic] = useState('');
+  // const [filename, setFilename] = useState('Choose File');
 
-
-
-
-
+  // const onChange = e => {
+  //   setProfilePic(e.target.files[0].name);
+  //   setFilename(e.target.files[0].name);
+  //   console.log(e.target.files)
+  // };
 
   function handleSignupSubmit(event){
     event.preventDefault();
+    console.log("sign up button working")
     API.signup({firstName, lastName, phoneNumber, address, email, password}).then(response => console.log(response.data))
   }
 
@@ -24,7 +28,6 @@ function SignUp() {
     <div className="signupBox">
       <h1>Signup</h1>
       <div>
-        yo
         <label htmlFor="firstName">First Name: </label>
         <input name="firstName" type="text" value={firstName} onChange={(event) => { setFirstName(event.target.value)}}/><br/>
         <label htmlFor="lastName">Last Name: </label>
@@ -37,7 +40,11 @@ function SignUp() {
         <input name="password" type="password" value={password} onChange={(event) => { setPassword(event.target.value)}}/> <br/>
         <label htmlFor="email">Email: </label>
         <input name="email" type="text" value={email} onChange={(event) => { setEmail(event.target.value)}}/><br/>
-
+        {/* <label htmlFor='customFile'>{filename}</label> */}
+          <input
+            type='file'
+            // onChange={onChange}
+          />
         <button onClick={handleSignupSubmit}>Sign Up!</button>
       </div>    
     </div>
