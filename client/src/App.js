@@ -69,49 +69,6 @@ function App() {
   return (
     
     <Router>
-<<<<<<< HEAD
-      <div>
-        {/* <Route exact path="/" component={LoginNavbar} /> */}
-        <Navbar />
-        <Switch>
-        <Route exact path="/">
-          <Login 
-            handleEmailInputChange={handleEmailInputChange} 
-            handlePasswordInputChange={handlePasswordInputChange} 
-            handleButtonSubmit={handleButtonSubmit}
-          />
-          </Route>
-          <Route exact path="/login">
-          <Login 
-            handleEmailInputChange={handleEmailInputChange} 
-            handlePasswordInputChange={handlePasswordInputChange} 
-            handleButtonSubmit={handleButtonSubmit}
-            email={email}
-            password={password}
-          />
-          </Route>
-          <Route exact path="/signup">
-          <SignUp />
-          </Route>
-          <Route exact path="/home">
-          <Home />
-          </Route>
-          <Route exact path="/contacts">
-          <Contacts />
-          </Route>
-          <Route exact path="/map">
-          <Maps />
-          </Route>
-          <Route exact path="/tree">
-          <Tree />
-          </Route>
-          <Route exact path="/profile">
-          <Profile 
-            user={user}
-          />
-          </Route>
-        {/* <Route exact path="/login" render={(props) => <Login {...props} handleEmailInputChange={handleEmailInputChange} handlePasswordInputChange={handlePasswordInputChange} handleButtonSubmit={handleButtonSubmit} />} />
-=======
       <UserContext.Provider value={user}>
         <div>
           <Navbar />
@@ -141,27 +98,18 @@ function App() {
             }
             
             {/* <Route exact path="/login" render={(props) => <Login {...props} handleEmailInputChange={handleEmailInputChange} handlePasswordInputChange={handlePasswordInputChange} handleButtonSubmit={handleButtonSubmit} />} />
->>>>>>> master
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/home" component={Home} />
         <Route exact path="/contacts" component={Contacts} />
         <Route exact path="/map" component={Maps} />
         <Route exact path="/tree" component={Tree} />
         <Route exact path="/profile" component={Profile} /> */}
-<<<<<<< HEAD
-        </Switch>
-        {
-        renderPrivateSection()
-      }
-      </div>
-=======
         <Route>
           <Redirect to="/" />
         </Route>
           </Switch>
         </div>
       </UserContext.Provider>
->>>>>>> master
     </Router>
   )
   
