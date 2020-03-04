@@ -24,12 +24,13 @@ export default {
     return axios.get("/api/home");
   },
 
-  getUser: function () {
-    return axios.get("/profile");
+  getUser: function (email) {
+    return axios.get("/profile", email);
   },
 
   getContacts: function () {
-    return axios.get("/api/auth/signup");
+    console.log("console request getting to api.js")
+    return axios.get("/contacts");
   },
 
   signup: (info) => {

@@ -22,16 +22,16 @@ module.exports = function (app) {
         db.Comment.findAll({
         }).then(function (results) {
             res.json(results);
-        });
+        }); 
     });
 
-    // app.get("/api/auth/signup", function(req, res) {
-    //     console.log(req.body);
-    //     db.Stupid.findAll({
-    //     }).then(function(results) {
-    //         res.json(results);
-    //     });
-    // });
+    app.get("/contacts", function(req, res) {
+        console.log("getting contacts to the backend");
+        db.Stupid.findAll({
+        }).then(function(results) {
+            res.json(results);
+        });
+    });
 
     app.post("/api/auth/login", passport.authenticate("local"), (req, res) => {
         console.log("test");
