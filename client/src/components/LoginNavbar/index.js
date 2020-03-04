@@ -1,14 +1,31 @@
-import React from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
+import "./style.css";
 
-function LoginNavbar () {
+
+function Navbar() {
     return (
         <div>
-            <div>
-                <p>Log In</p>
-                <p>Sign Up</p>
+            <div className="navbar navbarDiv">
+
+                <div className="profileBox">
+                <Link
+                        to="/signup"
+                        className={window.location.pathname === "/signup"}
+                    >
+                        Sign Up
+                    </Link>
+                    <Link
+                        to="/login"
+                        className={window.location.pathname === "/login"}
+                    >
+                        Login
+                    </Link>
+                </div>
             </div>
         </div>
-    )
-};
 
-export default LoginNavbar;
+    );
+}
+
+export default Navbar;

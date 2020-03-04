@@ -49,13 +49,6 @@ function Login(props) {
                     SUBMIT
                 </button>>
                 </div>
-            <Link
-                to="/signup"
-                className={window.location.pathname === "/signup"}
-            >
-                <p>SIGNUP</p>
-            </Link>
-
         </div>
     )
 };

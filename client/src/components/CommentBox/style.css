@@ -3,6 +3,8 @@
     background-color: gold;
     border-radius: 10px;
     height: 100%;
+    box-shadow: 1px 1px 1px 1px black;
+
 }
 
 .comment {
