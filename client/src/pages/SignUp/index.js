@@ -27,7 +27,7 @@ function SignUp() {
   return (
     <div className="signupBox">
       <h1>Signup</h1>
-      <div>
+      <div id="signupContent">
         <label htmlFor="firstName">First Name: </label>
         <input name="firstName" type="text" value={firstName} onChange={(event) => { setFirstName(event.target.value)}}/><br/>
         <label htmlFor="lastName">Last Name: </label>
@@ -45,7 +45,7 @@ function SignUp() {
             type='file'
             // onChange={onChange}
           />
-        <button onClick={handleSignupSubmit}>Sign Up!</button>
+        <button id="signupBtn" type="button" className={"btn", "btn-primary"} onClick={handleSignupSubmit}>Sign Up!</button>
       </div>    
     </div>
   );

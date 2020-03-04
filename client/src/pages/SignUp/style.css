@@ -4,3 +4,17 @@
     border-radius: 10px;
     margin: 5% auto;
 }
+
+#signupBtn {
+    border-radius: 5px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+#signupContent {
+    margin: 1%;
+}
+
+#signupTitle {
+    margin-left: 1%;
+}

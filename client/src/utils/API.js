@@ -38,7 +38,6 @@ export default {
     return axios.post("/api/auth/signup", info);
   },
   login: (email, password) => {
-    console.log(email, password);
     return axios.post("/api/auth/login", {email, password})
   },
 
