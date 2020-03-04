@@ -40,6 +40,12 @@ function App() {
     setPassword(event.target.value);
   };
 
+  function renderPrivateSection() {
+    if (isLoggedIn){
+      return <div><h1>Logged in</h1></div>
+    }
+  }
+
   return (
     
     <Router>
@@ -91,6 +97,9 @@ function App() {
         <Route exact path="/tree" component={Tree} />
         <Route exact path="/profile" component={Profile} /> */}
         </Switch>
+        {
+        renderPrivateSection()
+      }
       </div>
     </Router>
   )
