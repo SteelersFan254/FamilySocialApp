@@ -11,10 +11,10 @@ function PictureBox() {
         <div>
             <div className="infoBox">
                <div style={{ margin: "2%", fontSize:"48px" }}>
-                    <p>{context.firstName}&nbsp;{context.lastName}asdfasdfas</p>
+                    <p>{context.firstName}&nbsp;{context.lastName}</p>
                </div>
-               <div style={{ margin: "2% 2% 2% 2%"}}>
-                   <img src="https://via.placeholder.com/300" style={{width: "100%"}} />
+               <div style={{ margin: "2% auto 2%"}}>
+                   <img src="https://via.placeholder.com/20" style={{width: "80%"}} />
                </div>
 
             </div>

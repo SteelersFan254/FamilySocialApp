@@ -14,11 +14,11 @@ module.exports = function (sequelize, DataTypes) {
         },
         phoneNumber: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
         address: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
         email: {
             type: DataTypes.STRING,
@@ -27,7 +27,7 @@ module.exports = function (sequelize, DataTypes) {
         password: {
             type: DataTypes.STRING,
             allowNull: false
-        }, 
+        }
     } 
     );
     // Review.associate = function(models) {
@@ -73,20 +73,20 @@ module.exports = function (sequelize, DataTypes) {
 //     // in order to define an instance method, we have to access
 //     // the User model prototype. This can be found in the
 //     // sequelize documentation
-//     Stupid.prototype.authorize = async function () {
-//         const { AuthToken } = sequelize.models;
-//         const stupid = this
+    // Stupid.prototype.authorize = async function () {
+    //     const { AuthToken } = sequelize.models;
+    //     const stupid = this
 
-//         // create a new auth token associated to 'this' user
-//         // by calling the AuthToken class method we created earlier
-//         // and passing it the user id
-//         const authToken =  AuthToken.generate(this.id);
+    //     // create a new auth token associated to 'this' user
+    //     // by calling the AuthToken class method we created earlier
+    //     // and passing it the user id
+    //     const authToken =  AuthToken.generate(this.id);
 
-//         // addAuthToken is a generated method provided by
-//         // sequelize which is made for any 'hasMany' relationships
-//          stupid.addAuthToken(authToken);
-//         return { stupid, authToken }
-//     };
+    //     // addAuthToken is a generated method provided by
+    //     // sequelize which is made for any 'hasMany' relationships
+    //      stupid.addAuthToken(authToken);
+    //     return { stupid, authToken }
+    // };
 
 
 //     Stupid.prototype.logout = async function (token) {

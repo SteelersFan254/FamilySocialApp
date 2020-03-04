@@ -1,5 +1,7 @@
 .eventCreate {
     background-color: gold;
+    box-shadow: 1px 1px 1px 1px black;
+
 }
 
 .eventCreate-body {
