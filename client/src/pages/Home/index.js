@@ -1,14 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import "./style.css"
 import CommentFeed from "../../components/CommentFeed"
 import EventFeed from "../../components/EventFeed"
 import ProfileColumn from "../../components/ProfileColumn"
 import API from "../../utils/API";
+import UserContext from "../../utils/UserContext";
 
 
 function Home() {
+
+    const {firstName, lastName} = useContext(UserContext);
+
     const [formObject, setFormObject] = useState({})
     const [comments, setComments] = useState([])
+
+    // const [userLastName] = useState({
+    //     lastName: context.lastName, 
+    // })
 
 
     // Handles updating component state when the user types into the input field
@@ -27,6 +35,7 @@ function Home() {
 
     function handleFormSubmit(event) {
         event.preventDefault();
+        console.log(firstName, lastName)
         API.saveComment(formObject).then(res => loadComments())
     };
 
