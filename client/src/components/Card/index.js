@@ -11,7 +11,7 @@ function Card(props) {
             <img src={props.contact.profilePic} style={{ borderRadius: "50%", margin: "2%", height: "150px", width: "150px" }} />
 
 
-            <div style={{ float: "right", textAlign: "left", width: "60%"}}>
+            <div style={{ float: "right", textAlign: "left", width: "50%"}}>
                 <p> {props.contact.firstName} {props.contact.lastName}</p>
                 <p>Email: {props.contact.email}</p>
                 <p>Phone Number: {props.contact.phoneNumber}</p>
