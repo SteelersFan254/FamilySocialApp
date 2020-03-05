@@ -1,5 +1,6 @@
 // Requiring necessary npm packages
 require("dotenv").config();
+const path = require("path");
 var express = require("express");
 var session = require("express-session");
 // Requiring passport as we've configured it
@@ -28,7 +29,7 @@ require("./routes/api-routes.js")(app);
 
 if(process.env.NODE_ENV === "production"){  
     app.use("*", function(req, res){
-        res.sendFile("client/build/index.html")
+        res.sendFile(path.join(__dirname, "/client/build/index.html"));
     })
 }
 
