@@ -41,14 +41,6 @@ function SignUp() {
         <input name="password" type="password" value={password} onChange={(event) => { setPassword(event.target.value)}}/> <br/>
         <label htmlFor="email">Email: </label>
         <input name="email" type="text" value={email} onChange={(event) => { setEmail(event.target.value)}}/><br/>
-<<<<<<< HEAD
-        {/* <label htmlFor='customFile'>{filename}</label> */}
-          <input
-            type='file'
-            // onChange={onChange}
-          />
-        <button id="signupBtn" type="button" className={"btn", "btn-primary"} onClick={handleSignupSubmit}>Sign Up!</button>
-=======
         <label htmlFor="profilePic">Profile Picture</label>
         <input name="profilePic" type="text" value={profilePic} onChange={(event) => { setProfilePic(event.target.value)}}></input>
           
@@ -58,7 +50,6 @@ function SignUp() {
             type='file'
             onChange={onChange} 
         /> */}
->>>>>>> master
       </div>    
     </div>
   );
