@@ -46,11 +46,12 @@ module.exports = function (app) {
   });
 
   app.post("/api/auth/login", passport.authenticate("local"), (req, res) => {
-    console.log("test");
+    console.log("APIT IS GETTING TO API ROUTES SECONDE TIME AROUND");
     res.json(req.user);
   })
 
   app.post("/api/auth/signup", function (req, res) {
+    console.log("signup up getting to post in apiroutes")
     const hash = bcrypt.hashSync(req.body.password, 10)
     db.Stupid.create(
       Object.assign(req.body, { password: hash })

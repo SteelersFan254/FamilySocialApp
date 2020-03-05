@@ -6,5 +6,11 @@
     font-size: 24px;
     box-shadow: 1px 1px 1px 1px black;
     height: 40%;
+    overflow:hidden;
+}
 
+.meBoxName {
+    height: 20%;
+    text-align: center;
+    background-color: goldenrod;
 }
