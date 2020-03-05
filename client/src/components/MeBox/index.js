@@ -8,7 +8,7 @@ function MeBox () {
     console.log(context.profilePic)
     return(
         <div className="meBox">
-        <div style={{height: "20%"}}>
+        <div className="meBoxName">
             {context.firstName}&nbsp;{context.lastName}
         </div>
         <img src={context.profilePic} style={{width: "80%", margin: "0 0 0 10%"}} />

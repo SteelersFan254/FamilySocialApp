@@ -18,7 +18,7 @@ function CommentBox(props) {
 
         <div>
             <div className="commentBox">
-                <div className="creatorBox">
+                <div className="commentBoxTitle">
                     <p style={{margin: "0 0 1rem 5%"}}>{props.comment.firstName}&nbsp;{props.comment.lastName}</p>
                 </div>
                 <div lassName="comment">

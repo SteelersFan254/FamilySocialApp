@@ -8,7 +8,7 @@ function InfoBox() {
 
         <div>
             <div className="infoBox">
-               <div style={{margin: "2%"}}>
+               <div className="infoBoxTitle">
                    <p style={{fontSize: "48px"}}> INFORMATION</p>
                </div>
                <div>
