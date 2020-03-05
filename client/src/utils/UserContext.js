@@ -8,6 +8,7 @@ const UserContext = React.createContext({
     address: "",
     email: "",
     password: "",
+    profilePic: ""
 });
 
 export default UserContext;

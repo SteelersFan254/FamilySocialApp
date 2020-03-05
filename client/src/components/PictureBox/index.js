@@ -14,7 +14,7 @@ function PictureBox() {
                     <p>{context.firstName}&nbsp;{context.lastName}</p>
                </div>
                <div style={{ margin: "2% auto 2%"}}>
-                   <img src="https://via.placeholder.com/20" style={{width: "80%"}} />
+                   <img src={context.profilePic} style={{width: "80%"}} />
                </div>
 
             </div>

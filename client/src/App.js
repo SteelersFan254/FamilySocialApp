@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, useHistory} from "react-router-dom";
 import API from "./utils/API.js"
 import UserContext from "./utils/UserContext";
 import Login from "./pages/Login";
@@ -18,71 +18,35 @@ function App() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState({
+    id: "",
+    firstName: "",
+    lastName: "",
+    phoneNumber: "",
+    address: "",
+    email: "",
+    password: "",
+    profilePic: ""
+  });
+
+  const history = useHistory();
 
   function handleButtonSubmit(event) {
-    // event.preventDefault();
+    event.preventDefault();
     API.login(email, password).then(response => {
       setIsLoggedIn(true);
       console.log(response.data.firstName + " " + response.data.lastName + " you are logged in!")
       setUser(response.data)
+      history.push("/home")
     })
 
   }
-  // function renderPrivateRoutes() {
-  //   return <>
-  //     <Navbar />
-  //     <Switch>
 
-  //       <Route exact path="/home">
-  //         <Home />
-  //       </Route>
-  //       <Route exact path="/contacts">
-  //         <Contacts />
-  //       </Route>
-  //       <Route exact path="/map">
-  //         <Maps />
-  //       </Route>
-  //       <Route exact path="/tree">
-  //         <Tree />
-  //       </Route>
-  //       <Route exact path="/profile">
-  //         <Profile
-  //           user={user}
-  //         />
-  //       </Route>
-  //     </Switch>
-
-  //   </>
-  // }
-
-  // function renderPublicRoutes() {
-  //   return <>
-
-  //     <LoginNavbar />
-  //     <Switch>
-  //       <Route exact path="/">
-  //         <Login
-  //           handleEmailInputChange={handleEmailInputChange}
-  //           handlePasswordInputChange={handlePasswordInputChange}
-  //           handleButtonSubmit={handleButtonSubmit}
-  //         />
-  //       </Route>
-  //       <Route exact path="/login">
-  //         <Login
-  //           handleEmailInputChange={handleEmailInputChange}
-  //           handlePasswordInputChange={handlePasswordInputChange}
-  //           handleButtonSubmit={handleButtonSubmit}
-  //           email={email}
-  //           password={password}
-  //         />
-  //       </Route>
-  //       <Route exact path="/signup">
-  //         <SignUp />
-  //       </Route>
-  //     </Switch>
-  //   </>
-  // }
+  function logout(event) {
+    API.logout().then(response => {
+      setIsLoggedIn(false);
+    })
+  }
 
   const handleEmailInputChange = event => {
     setEmail(event.target.value);
@@ -91,75 +55,134 @@ function App() {
     setPassword(event.target.value);
   };
 
-  return (
-    <Router>
-      <UserContext.Provider value={user}>
-        <div>
-          <Navbar />
-          <Switch>
-            <Route exact path="/">
-              <Login
-                handleEmailInputChange={handleEmailInputChange}
-                handlePasswordInputChange={handlePasswordInputChange}
-                handleButtonSubmit={handleButtonSubmit}
-              />
-            </Route>
-            <Route exact path="/login">
-              <Login
-                handleEmailInputChange={handleEmailInputChange}
-                handlePasswordInputChange={handlePasswordInputChange}
-                handleButtonSubmit={handleButtonSubmit}
-                email={email}
-                password={password}
-              />
-            </Route>
-            <Route exact path="/signup">
-              <SignUp />
-            </Route>
-            <Route exact path="/home">
-              <Home />
-            </Route>
-            <Route exact path="/contacts">
-              <Contacts />
-            </Route>
-            <Route exact path="/map">
-              <Maps />
-            </Route>
-            <Route exact path="/tree">
-              <Tree />
-            </Route>
-            <Route exact path="/profile">
-              <Profile
-                user={user}
-              />
-            </Route>
-          </Switch>
+
+  function renderPrivateRoutes() {
+    return <>
+      <Navbar
+        logout={logout}
+      />
+      <Switch>
+
+        <Route exact path="/home">
+          <Home />
+        </Route>
+        <Route exact path="/contacts">
+          <Contacts />
+        </Route>
+        <Route exact path="/map">
+          <Maps />
+        </Route>
+        <Route exact path="/tree">
+          <Tree />
+        </Route>
+        <Route exact path="/profile">
+          <Profile
+            user={user}
+          />
+        </Route>
+      </Switch>
+
+    </>
+  }
+
+  function renderPublicRoutes() {
+    return <>
+
+      <LoginNavbar />
+      <Switch>
+        <Route exact path="/">
+          <Login
+            handleEmailInputChange={handleEmailInputChange}
+            handlePasswordInputChange={handlePasswordInputChange}
+            handleButtonSubmit={handleButtonSubmit}
+          />
+        </Route>
+        <Route exact path="/login">
+          <Login
+            handleEmailInputChange={handleEmailInputChange}
+            handlePasswordInputChange={handlePasswordInputChange}
+            handleButtonSubmit={handleButtonSubmit}
+            email={email}
+            password={password}
+          />
+        </Route>
+        <Route exact path="/signup">
+          <SignUp />
+        </Route>
+      </Switch>
+    </>
+  }
 
 
+    return (
 
-          {/* {
-            (isLoggedIn) && renderPrivateRoutes()
-          }
+        <UserContext.Provider value={user}>
+          <div>
 
-          {
-            (!isLoggedIn) && renderPublicRoutes()
-          } */}
+            {
+              (isLoggedIn) && renderPrivateRoutes()
+            }
 
-          {/* <Route exact path="/login" render={(props) => <Login {...props} handleEmailInputChange={handleEmailInputChange} handlePasswordInputChange={handlePasswordInputChange} handleButtonSubmit={handleButtonSubmit} />} />
-        <Route exact path="/signup" component={SignUp} />
-        <Route exact path="/home" component={Home} />
-        <Route exact path="/contacts" component={Contacts} />
-        <Route exact path="/map" component={Maps} />
-        <Route exact path="/tree" component={Tree} />
-        <Route exact path="/profile" component={Profile} /> */}
-          {/* <Route>
-            <Redirect to="/" />
-          </Route> */}
-        </div>
-      </UserContext.Provider>
-    </Router>
+            {
+              (!isLoggedIn) && renderPublicRoutes()
+            }
 
-  )
-};
+          </div>
+        </UserContext.Provider>
+
+    )
+  };
+
+//   return (
+//     <Router>
+//       <UserContext.Provider value={user}>
+//         <div>
+//           <Navbar
+//             logout={logout}
+//           />
+//           <Switch>
+//             <Route exact path="/">
+//               <Login
+//                 handleEmailInputChange={handleEmailInputChange}
+//                 handlePasswordInputChange={handlePasswordInputChange}
+//                 handleButtonSubmit={handleButtonSubmit}
+//               />
+//             </Route>
+//             <Route exact path="/login">
+//               <Login
+//                 handleEmailInputChange={handleEmailInputChange}
+//                 handlePasswordInputChange={handlePasswordInputChange}
+//                 handleButtonSubmit={handleButtonSubmit}
+//                 email={email}
+//                 password={password}
+//               />
+//             </Route>
+//             <Route exact path="/signup">
+//               <SignUp />
+//             </Route>
+//             <Route exact path="/home">
+//               <Home />
+//             </Route>
+//             <Route exact path="/contacts">
+//               <Contacts />
+//             </Route>
+//             <Route exact path="/map">
+//               <Maps />
+//             </Route>
+//             <Route exact path="/tree">
+//               <Tree />
+//             </Route>
+//             <Route exact path="/profile">
+//               <Profile
+//                 user={user}
+//               />
+//             </Route>
+//           </Switch>
+//         </div>
+//       </UserContext.Provider>
+//     </Router>
+
+//   )
+// };
 
 export default App;

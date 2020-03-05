@@ -6,21 +6,9 @@ import InfoBox from "../../components/InfoBox"
 import FamilyBox from "../../components/FamilyBox"
 import SocialMediaBox from "../../components/SocialMediaBox"
 import PhotoBox from "../../components/PhotoBox"
-import { PromiseProvider } from 'mongoose';
-// import API from "../../utils/API.js"
 
 function Profile(props) {
-    // const [user, setUser] = useState({})
-    // useEffect(()=>{
-    //     API.getUser()
-    //         .then(res => {
-    //             setUser(res.data)
-    //             console.log(user, "hello")
-    //         }
-    //         )
-    //         .catch(err => console.log(err));
-    //     }, []);
-    console.log(JSON.stringify(props.user) + "in profile page component")
+
     return (
         <div>
             <div className="profilePageBox">

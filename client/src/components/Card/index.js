@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css"
+import { PromiseProvider } from "mongoose";
 
 
 function Card(props) {
@@ -7,7 +8,7 @@ function Card(props) {
     console.log(props.contact)
     return (
         <div className="contactCard">
-            <img src="https://via.placeholder.com/150" style={{ borderRadius: "50%", margin: "2%" }} />
+            <img src={props.contact.profilePic} style={{ borderRadius: "50%", margin: "2%", height: "150px", width: "150px" }} />
 
 
             <div style={{ float: "right", textAlign: "left", width: "60%"}}>

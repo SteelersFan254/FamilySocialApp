@@ -5,11 +5,11 @@ import './style.css';
 function SignUp() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState();
   const [address, setAddress] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [profilePic, setProfilePic] = useState('');
+  const [profilePic, setProfilePic] = useState('');
   // const [filename, setFilename] = useState('Choose File');
 
   // const onChange = e => {
@@ -21,7 +21,8 @@ function SignUp() {
   function handleSignupSubmit(event){
     event.preventDefault();
     console.log("sign up button working")
-    API.signup({firstName, lastName, phoneNumber, address, email, password}).then(response => console.log(response.data))
+    API.signup({firstName, lastName, phoneNumber, address, email, password, profilePic}).then(response => console.log(response.data));
+    
   }
 
   return (
@@ -40,12 +41,15 @@ function SignUp() {
         <input name="password" type="password" value={password} onChange={(event) => { setPassword(event.target.value)}}/> <br/>
         <label htmlFor="email">Email: </label>
         <input name="email" type="text" value={email} onChange={(event) => { setEmail(event.target.value)}}/><br/>
-        {/* <label htmlFor='customFile'>{filename}</label> */}
-          <input
-            type='file'
-            // onChange={onChange}
-          />
+        <label htmlFor="profilePic">Profile Picture</label>
+        <input name="profilePic" type="text" value={profilePic} onChange={(event) => { setProfilePic(event.target.value)}}></input>
+          
         <button onClick={handleSignupSubmit}>Sign Up!</button>
+        {/* <label htmlFor='customFile'>{filename}</label>
+        <input
+            type='file'
+            onChange={onChange} 
+        /> */}
       </div>    
     </div>
   );

@@ -2,11 +2,18 @@
     margin: 10px auto;
     background-color: gold;
     border-radius: 10px;
-    height: 100%;
     box-shadow: 1px 1px 1px 1px black;
+    overflow:hidden;
 
 }
 
-.comment {
-    margin: 5%;
+.creatorBox {
+    background-color: goldenrod;
+    font-size: 24px;
+
+}
+
+.timeStampBox {
+    background-color: goldenrod;
+    height: 40%
 }

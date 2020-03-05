@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./style.css";
 
 
-function Navbar() {
+function Navbar(props) {
     return (
         <div>
             <div className="navbar navbarDiv">
@@ -43,6 +43,7 @@ function Navbar() {
                     <Link
                         to="/login"
                         className={window.location.pathname === "/login"}
+                        onClick={props.logout}
                     >
                         Logout
                     </Link>
