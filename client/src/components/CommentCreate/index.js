@@ -11,7 +11,7 @@ function CommentCreate(props) {
         <div class="card commentCreate">
         <div class="card-body commentCreate-body">
 
-            Write a comment
+            Post a comment:
             <input onChange={props.handleInputChange}
                 name="comment"
             ></input>

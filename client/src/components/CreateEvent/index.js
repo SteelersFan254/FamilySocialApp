@@ -11,7 +11,7 @@ function CreateEvent(props) {
         <div class="card eventCreate">
         <div class="card-body eventCreate-body">
 
-            Write a comment
+            Post an event:
             <input
                 name="comment"
             ></input>
