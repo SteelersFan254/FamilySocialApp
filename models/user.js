@@ -27,6 +27,10 @@ module.exports = function (sequelize, DataTypes) {
         password: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        profilePic: {
+            type: DataTypes.STRING,
+            allowNull: true
         }
     } 
     );
@@ -42,6 +46,10 @@ module.exports = function (sequelize, DataTypes) {
     // the related objects
     Stupid.associate = function (models) {
         Stupid.hasMany(models.AuthToken);
+    };
+
+    Stupid.associate = function (models) {
+        Stupid.hasMany(models.Comment);
     };
 
     Stupid.prototype.checkPassword = function(password) {

@@ -3,8 +3,25 @@ module.exports = function(sequelize, DataTypes) {
         comment: {
             type: DataTypes.STRING,
             allowNull: false
-        },
+        }, firstName: {
+            type: DataTypes.STRING,
+            allowNull: false
+        }, lastName: {
+            type: DataTypes.STRING,
+            allowNull: false
+        }, StupidId: {
+            type:DataTypes.INTEGER,
+            allowNull: false
+        }
     });
+
+    Comment.associate = function(models) {
+        models.Comment.belongsTo(models.Stupid);
+      };
+      
+    // Comment.associate = function({ Stupid }) {
+    //     Comment.belongsTo(Stupid);
+    //   };
 
     // Review.associate = function(models) {
     //     Review.belongsTo(models.User, {
