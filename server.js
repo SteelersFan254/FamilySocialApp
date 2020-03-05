@@ -26,6 +26,12 @@ require("./routes/api-routes.js")(app);
 // require("./routes/review-api-routes")(app);
 
 
+if(process.env.NODE_ENV === "production"){  
+    app.use("*", function(req, res){
+        res.sendFile("client/build/index.html")
+    })
+}
+
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync({force: process.env.FORCE_DB==="true"}).then(function() {
     app.listen(PORT, function() {
