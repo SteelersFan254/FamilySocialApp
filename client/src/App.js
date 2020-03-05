@@ -29,11 +29,18 @@ function App() {
     profilePic: ""
   });
 
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState();
+  const [address, setAddress] = useState("");
+  const [profilePic, setProfilePic] = useState('');
+
   const history = useHistory();
 
   function handleButtonSubmit(event) {
     event.preventDefault();
-    API.login(email, password).then(response => {
+    API.login(email, password)
+    .then(response => {
       setIsLoggedIn(true);
       console.log(response.data.firstName + " " + response.data.lastName + " you are logged in!")
       setUser(response.data)
@@ -41,12 +48,56 @@ function App() {
     })
 
   }
-
+  function handleSignupSubmit(event){
+    event.preventDefault();
+    console.log("sign up button working")
+    API.signup({firstName, lastName, phoneNumber, address, email, password, profilePic})
+    .then(response => {
+      console.log("signup is getting to API.login. here is the response" + response.data)
+      console.log("here is the password" +response.data.password)
+      API.login(email, password)
+      .then(response => {
+        setIsLoggedIn(true);
+        setUser(response.data);
+        history.push("/home");
+      })
+    });
+    
+  }
   function logout(event) {
     API.logout().then(response => {
       setIsLoggedIn(false);
     })
   }
+
+  const handleSignupFirstNameInputChange = (event) => { 
+    setFirstName(event.target.value)
+  };
+  const handleSignupLastNameInputChange = (event) => { 
+    setLastName(event.target.value)
+  };
+  const handleSignupPhoneNumberInputChange = (event) => { 
+    setPhoneNumber(event.target.value)
+  };
+  const handleSignupAddressInputChange = (event) => { 
+    setAddress(event.target.value)
+  };
+  const handleSignupPasswordInputChange = (event) => { 
+    setPassword(event.target.value)
+  };
+  const handleSignupEmailInputChange = (event) => { 
+    setEmail(event.target.value)
+  };
+  const handleSignupProfilePicInputChange = (event) => { 
+    setProfilePic(event.target.value)
+  };
+
+
+
+
+
+
+
 
   const handleEmailInputChange = event => {
     setEmail(event.target.value);
@@ -95,6 +146,8 @@ function App() {
             handleEmailInputChange={handleEmailInputChange}
             handlePasswordInputChange={handlePasswordInputChange}
             handleButtonSubmit={handleButtonSubmit}
+            email={email}
+            password={password}
           />
         </Route>
         <Route exact path="/login">
@@ -107,7 +160,23 @@ function App() {
           />
         </Route>
         <Route exact path="/signup">
-          <SignUp />
+          <SignUp 
+            handleSignupSubmit={handleSignupSubmit}
+            handleSignupFirstNameInputChange={handleSignupFirstNameInputChange}
+            handleSignupLastNameInputChange={handleSignupLastNameInputChange}
+            handleSignupPhoneNumberInputChange={handleSignupPhoneNumberInputChange}
+            handleSignupAddressInputChange={handleSignupAddressInputChange}
+            handleSignupPasswordInputChange={handleSignupPasswordInputChange}
+            handleSignupEmailInputChange={handleSignupEmailInputChange}
+            handleSignupProfilePicInputChange={handleSignupProfilePicInputChange}
+            firstName={firstName}
+            lastName={lastName}
+            phoneNumber={phoneNumber}
+            address={address}
+            password={password}
+            email={email}
+            profilePic={profilePic}
+          />
         </Route>
       </Switch>
     </>

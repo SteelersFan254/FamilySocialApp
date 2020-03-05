@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import API from "../../utils/API";
 import './style.css';
 
-function SignUp() {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState();
-  const [address, setAddress] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [profilePic, setProfilePic] = useState('');
+function SignUp(props) {
+  // const [firstName, setFirstName] = useState("");
+  // const [lastName, setLastName] = useState("");
+  // const [phoneNumber, setPhoneNumber] = useState();
+  // const [address, setAddress] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [profilePic, setProfilePic] = useState('');
   // const [filename, setFilename] = useState('Choose File');
 
   // const onChange = e => {
@@ -18,33 +18,39 @@ function SignUp() {
   //   console.log(e.target.files)
   // };
 
-  function handleSignupSubmit(event){
-    event.preventDefault();
-    console.log("sign up button working")
-    API.signup({firstName, lastName, phoneNumber, address, email, password, profilePic}).then(response => console.log(response.data));
+  // function handleSignupSubmit(event){
+  //   event.preventDefault();
+  //   console.log("sign up button working")
+  //   API.signup({firstName, lastName, phoneNumber, address, email, password, profilePic}).then(response => console.log(response.data));
     
-  }
+  // }
 
   return (
     <div className="signupBox">
       <h1>Signup</h1>
       <div>
         <label htmlFor="firstName">First Name: </label>
-        <input name="firstName" type="text" value={firstName} onChange={(event) => { setFirstName(event.target.value)}}/><br/>
+        <input name="firstName" type="text" value={props.firstName} onChange={props.handleSignupFirstNameInputChange}/><br/>
+        
         <label htmlFor="lastName">Last Name: </label>
-        <input name="lastName" type="text" value={lastName} onChange={(event) => { setLastName(event.target.value)}}/> <br/>
+        <input name="lastName" type="text" value={props.lastName} onChange={props.handleSignupLastNameInputChange}/> <br/>
+        
         <label htmlFor="phoneNumber">Phone Number: </label>
-        <input name="phoneNumber" type="text" value={phoneNumber} onChange={(event) => { setPhoneNumber(event.target.value)}}/> <br/>
+        <input name="phoneNumber" type="text" value={props.phoneNumber} onChange={props.handleSignupPhoneNumberInputChange}/> <br/>
+        
         <label htmlFor="address">Adress: </label>
-        <input name="address" type="text" value={address} onChange={(event) => { setAddress(event.target.value)}}/> <br/>
+        <input name="address" type="text" value={props.address} onChange={props.handleSignupAddressInputChange}/> <br/>
+        
         <label htmlFor="password">Password: </label>
-        <input name="password" type="password" value={password} onChange={(event) => { setPassword(event.target.value)}}/> <br/>
+        <input name="password" type="password" value={props.password} onChange={props.handleSignupPasswordInputChange}/> <br/>
+        
         <label htmlFor="email">Email: </label>
-        <input name="email" type="text" value={email} onChange={(event) => { setEmail(event.target.value)}}/><br/>
+        <input name="email" type="text" value={props.email} onChange={props.handleSignupEmailInputChange}/><br/>
+        
         <label htmlFor="profilePic">Profile Picture</label>
-        <input name="profilePic" type="text" value={profilePic} onChange={(event) => { setProfilePic(event.target.value)}}></input>
+        <input name="profilePic" type="text" value={props.profilePic} onChange={props.handleSignupProfilePicInputChange}></input>
           
-        <button onClick={handleSignupSubmit}>Sign Up!</button>
+        <button onClick={props.handleSignupSubmit}>Sign Up!</button>
         {/* <label htmlFor='customFile'>{filename}</label>
         <input
             type='file'
